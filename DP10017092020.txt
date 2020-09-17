@@ -1,0 +1,208 @@
+-ML Components
+- convert our program to Azure ML program 
+- monitoring and security- Monitor, LogAnalytics, KeyVault
+- edge computing 
+Enterprise-> private Data Lake
+	-> Databricks + KeyVault 
+
+
+
+
+https://surveysays.walmart.com/survey/Lp7bbbCBV  
+
+
+
+Monitoring ACI/Endpoints-> Application Insights (Azure Monitor)
+Kubernetes-> Container Insights (Azure Monitor)
+https://docs.microsoft.com/en-us/azure/aks/concepts-scale#:~:text=%20Scaling%20options%20for%20applications%20in%20Azure%20Kubernetes,AKS%20cluster%2C%20you%20can%20integrate%20with...%20More%20
+
+CPU v/s GPU
+
+- 200 potatoes
+CPU- 1 person who can 10 potatoes/min-> mov ax,bx int 21
+	-> MHz/GHz
+	-> statisitcal data, machine learning (graph theory)
+	-> extracting features from NLP
+GPU- 1 person who can 2 potatoes/min-> 20 such people
+	-> GB	
+	-> DNN, CV, sentiment analysis
+
+
+
+
+4 ways of training Pipeline Models:
+- Clustering Model
+- Train Model-> classification and clustering
+	- SKLearn, TF, Keras 
+- PyTorch Model 
+- Recommendation: Score Matchbox algorithm
+		(Matrix factorization) 
+- otherwise create Custom Python model 
+
+Filter based selection-> Pearson's correlation, chi-square 
+Permutation based selection-> SARIMAX, ANOVA
+
+
+CPU utilization-> 70% (kubernetes) 
+Throughput -> 50% (network)
+
+PyTorch-> Imperative programming on NN
+TF-> Lazy Evaluation (default), Eager evaluation possible 
+
+- C++, Assembly, JS,NodeJS         - HTML, PySpark, TF, Scala
+a=1          a=?      1               Ok
+b=2          b=?      2               Ok
+c=a+b        c=?      3                Ok
+print(c)     ???      "3"              Execute->"3"
+- immediate output                  - output makes sense only
+					after a few executions
+
+		                      Lazy Evaluation
+Compiler managing heap and stack;    - you build a DAG
+or you did 				- then allocates resources
+
+'Flow'-> dataflow, airflow, tensorflow-> DAG 
+NN, Random Forests, Decision Trees-> DAG
+Apache Spark, Databricks-> DAG 
+Machine Learning Pipelines-> we built DAG
+	-> Azure optimized the reduced this Pipeline
+		Real TIme inf-> our math ops were merged into 
+				single entity
+
+-> transferring models b/w frameworks
+
+   ONNX-> open neural network exchange 
+   PKL-> Python specific
+   H5-> tensorflow specific
+   JSON or byte-stream-> neutral; generally readble by all 
+   folder models-> .yml -> configuring model dependencies
+			-> conda files; pip installs; specific ver	
+
+
+ResNet
+VGGNet
+
+Kub: 
+	- 1:0 (standby)
+	- 1:N (dev/test)
+	- 3:N (fault tolerance & high availability) 
+
+Notebooks         ---- Databricks
+- disk + memory		- run in memory
+- 
+
+
+
+MLFlow-> collecting, training, inference-> production
+		-> MLFlow-> kubernetes, docker
+
+- Hadoop
+- ApacheSpark
+- kafka
+-storm
+- ML with R 
+- Interactive Query 
+
+-> infinite POSSIBILITIES of HPs!!!!
+	-> we need a FINITE SEARCH SPACE
+		-> discrete set-> [0.01, 0.1,  0.001]
+		-> continuous set-> range(0,1,0.01)
+
+Grid Search (Exhaustive Search)
+ - takes time, but gives you BEST solution
+	- all possible combinations of HPs!
+	- LR: [0.01, 0.001],  epoch: [10, 100, 1000]
+	-> {0.01,10},{0.01,100},{0.01,1000},...
+
+Randomized Search (faster search, but not best results)
+ - workable, not best HPs 
+ - typically used for incomplete, np-complete problems 
+ - infinite solutions 
+
+Probabilistic Search 
+ - p(h1) > p(h2) where h are HP sets
+
+y = w1*age + w2*money 
+
+Date Profit City -> Separated out-filtering , weights 
+d1     100    BLR		(sep models)   (same model) 
+d2     200    MAA 
+
+Date Profit City_BLR City_MAA
+d1      100     1      0
+d2      200     0      1
+
+w1*100 + w2* 1 + w3*0 = y
+w2*200 + w2* 0 + w3*1 = y 
+
+df[df.City=='BLR']
+
+
+Histogram-> Frequency(count) distribution, probability distribution
+	-> density distribution 	
+-> FIXED RANGE, CONTINUOUS VALUES
+	-> X axis-> BINS are continuous 
+
+Bar chart-> Categorical or separate data 
+	-> Discrete Values or unrelated values 
+	-> X axis-> bars 
+
+Normalizations:
+	Sigmoid: 0-1
+	Tanh: -1 to 1
+	MinMax-> (X-Min)/(Max-MIn)
+
+
+-> SMOTE algo
+	-> generates the weaker class 
+	-> find the centeral tendency of the difference of
+	imbalance
+
+-> Sweep Clustering-> optimal settings for clustering
+-> Score Matchbox-> Recommendation engine
+
+tf v/s Pytorch:
+	- pytorch: nn.l1, nn.l2
+			-> model is ready to use 
+	- tensorflow-> model.add
+			-> model.compile to ready model
+
+https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/train-matchbox-recommender
+
+BigData v/s Small Data
+- Tasks are already defined        - collect all the data possible
+- warehouses                       - databases 
+- analytics                        - transactions 
+- declarative/lazy evaluations     - imperative/eager evaluations
+- dedicated h/w design to support  - one infra supports multiple 				   
+
+ETL, ELT, EL
+- stream analytics/dataFactory -> 1 line of input-> processes -> dumps into sink
+	-> process took 200ms -> Near Real-Time
+	Real-Time ~ 0 
+	-> INSIDE Az Datacenter-> Real-time analysis 
+		-> stored on Data lake + Spark 
+	-> NO ENCRYPTION 
+
+Big Data payloads: (HDInsight) 
+- Streaming
+	- build a streaming platform- Kafka 
+	- process infinite streams- Storm  
+- batch 
+	- sql-style semi-structured warehouse-> HIVE
+	- no-sql style warehouse -> HBase 
+- Near-real time analysis and immediate storage-> Hadoop
+	- PETABYTE level scaling 
+- Analyze it In-Memory or very-fast analytics (InMem+disk)-> Spark
+- only SQL required?-> Interactive Query 
+	- behind the scenes: Hadoop with HIVE 
+- only R required?-> ML Studio with R
+
+
+
+
+
+
+
+
+
